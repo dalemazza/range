@@ -1,0 +1,5 @@
+Domain: athena.snap
+Domain_split: "{{ Domain.split('.') }}"
+NetBIOS: '{{ Domain_split[0] }}'
+DN: "DC={{ Domain_split|join(',DC=') }}"
+Group_OU: "OU=Groups,{{ DN }}"
