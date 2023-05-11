@@ -1,0 +1,5 @@
+---
+## Domain
+- name: Checking if domain joined
+  set_fact:
+    domain_joined: "{{ Domain in ansible_windows_domain }}"

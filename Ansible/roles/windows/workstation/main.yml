@@ -1,0 +1,5 @@
+---
+- include_tasks: pre_checks.yml
+
+- include: domain.yml
+  when: domain_joined == false
