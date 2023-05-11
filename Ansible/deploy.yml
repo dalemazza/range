@@ -2,7 +2,7 @@
 ######## WINDOWS
 - hosts: dc
   roles:
-    - roles/windows/dc
+    - roles/windows/server/dc
 
 - hosts: workstation
   roles:
