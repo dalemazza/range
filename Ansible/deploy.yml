@@ -1,0 +1,9 @@
+---
+######## WINDOWS
+- hosts: dc
+  roles:
+    - roles/windows/dc
+
+- hosts: workstation
+  roles:
+    - roles/windows/workstation
