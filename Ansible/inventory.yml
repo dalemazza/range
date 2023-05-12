@@ -2,7 +2,6 @@ windows:
       hosts:
         dc01:
           ansible_host: 192.168.1.128
-    workstation:
       hosts:
         wkst01:
           ansible_host: 192.168.1.130
