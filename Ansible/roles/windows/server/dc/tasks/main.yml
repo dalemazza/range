@@ -3,3 +3,5 @@
 
 - include: domain.yml
   when: domain_joined == false
+  
+- include: users.yml
