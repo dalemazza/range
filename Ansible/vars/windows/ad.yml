@@ -3,3 +3,14 @@ Domain_split: "{{ Domain.split('.') }}"
 NetBIOS: '{{ Domain_split[0] }}'
 DN: "DC={{ Domain_split|join(',DC=') }}"
 Group_OU: "OU=Groups,{{ DN }}"
+
+usernames:
+    - cpt01
+    - cpt02
+    - cpt03
+    - cpt04
+    - cpt05
+    - cpt06
+    - cpt07
+    - cpt08
+No_users: "{{ Usernames|length }}"
