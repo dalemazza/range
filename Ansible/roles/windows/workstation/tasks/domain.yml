@@ -44,7 +44,7 @@
   ansible.windows.win_domain_membership:
     dns_domain_name: "{{ Domain }}"
     domain_admin_user: administrator@{{ Domain }}
-    domain_admin_password: Passw0rd!
+    domain_admin_password: Password123!
     state: domain
   register: domain_state
 
