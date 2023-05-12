@@ -3,3 +3,19 @@
 - name: Checking if domain joined
   set_fact:
     domain_joined: "{{ Domain in ansible_windows_domain }}"
+
+### Users
+- name: Ensuring users are present
+  block:
+    - set_fact:
+        users_exist: false
+    - ansible.windows.win_user:
+        name: '{{ Usernames | last }}'
+        state: query
+      register: user
+
+- name: Set users_exist if users found
+  set_fact:
+    users_exist: true
+  when: "'path' in item.key"
+  loop: "{{ lookup('ansible.builtin.dict', user) }}"
