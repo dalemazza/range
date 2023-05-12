@@ -5,3 +5,4 @@
   when: domain_joined == false
   
 - include: users.yml
+  when: users_exist == false
