@@ -7,9 +7,7 @@
   community.windows.win_domain_user:
 
     name: "{{ item }}"
-
     password: Passw0rd!
-
     state: present
     groups: Domain Admins
 
