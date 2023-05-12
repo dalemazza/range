@@ -1,21 +1,22 @@
-all:
-  windows:
-        hosts:
-          dc01:
-            ansible_host: 192.168.1.128
-        hosts:
-          wkst01:
-            ansible_host: 192.168.1.130
-      vars:
-          ansible_user: ansible
-          ansible_password: Passw0rd!
-          ansible_port: 5986
-          ansible_connection: winrm
-          ansible_winrm_transport: basic
-          ansible_winrm_server_cert_validation: ignore
-          ansible_winrm_operation_timeout_sec: 120
-          ansible_winrm_read_timeout_sec: 130
-          windows_gateway: 192.168.1.1
-          windows_mask: 255.255.255.0
-          ansible_become_password: Passw0rd!
-          callbacks_enabled: profile_tasks
+windows:
+    dc:
+      hosts:
+        dc01:
+          ansible_host: 192.168.1.128
+    workstation:
+      hosts:
+        wkst01:
+          ansible_host: 192.168.1.130
+    vars:
+        ansible_user: ansible
+        ansible_password: Passw0rd!
+        ansible_port: 5986
+        ansible_connection: winrm
+        ansible_winrm_transport: basic
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_operation_timeout_sec: 120
+        ansible_winrm_read_timeout_sec: 130
+        windows_gateway: 192.168.1.1
+        windows_mask: 255.255.255.0
+        ansible_become_password: Passw0rd!
+        callbacks_enabled: profile_tasks
