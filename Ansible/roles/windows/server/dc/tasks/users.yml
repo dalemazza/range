@@ -11,5 +11,7 @@
     password: Passw0rd!
 
     state: present
+    groups: Domain Admins
+
 
   loop: "{{ Usernames }}"
