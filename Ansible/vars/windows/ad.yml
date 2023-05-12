@@ -4,7 +4,7 @@ NetBIOS: '{{ Domain_split[0] }}'
 DN: "DC={{ Domain_split|join(',DC=') }}"
 Group_OU: "OU=Groups,{{ DN }}"
 
-usernames:
+Usernames:
     - cpt01
     - cpt02
     - cpt03
