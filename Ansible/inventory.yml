@@ -2,16 +2,16 @@ all:
   children:
     windows:
       hosts: null
-        children:
-          dc:
-            hosts:
-              dc01:
-                ansible_host: 192.168.1.128
-          workstation:
-            hosts:
-              wkst01:
-                hosts:
-                  ansible_host: 192.168.1.130
+      children:
+        dc:
+          hosts:
+            dc01:
+              ansible_host: 192.168.1.128
+        workstation:
+          hosts:
+            wkst01:
+              hosts:
+                ansible_host: 192.168.1.130
       vars:
         ansible_user: ansible
         ansible_password: Passw0rd!
