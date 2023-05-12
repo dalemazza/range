@@ -1,4 +1,3 @@
----
 ## Domain
 - name: Checking if domain joined
   set_fact:
