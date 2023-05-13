@@ -8,7 +8,7 @@ terraform {
  }
 
 provider "proxmox" { 
-   pm_api_url    = "https://10.20.30.41:8006/api2/json" 
+   pm_api_url    = "https://192.168.1.46:8006/api2/json" 
    pm_debug      = true 
  }
 
@@ -26,7 +26,7 @@ resource "proxmox_vm_qemu" "dc01" {
      scsihw            = "virtio-scsi-pci" 
      bootdisk          = "scsi0" 
      disk { 
-         size            = "20G" 
+         size            = "40G" 
          type            = "scsi" 
          storage         = "local-lvm" 
      } 
