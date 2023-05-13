@@ -1,9 +1,9 @@
 ---
 ######## WINDOWS
-- hosts: dc01
+- hosts: dc
   roles:
     - roles/windows/server/dc
 
-- hosts: wkst01
+- hosts: workstation
   roles:
     - roles/windows/workstation
