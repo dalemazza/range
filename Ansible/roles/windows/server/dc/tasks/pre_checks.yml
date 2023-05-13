@@ -4,12 +4,21 @@
     domain_joined: "{{ Domain in ansible_windows_domain }}"
 
 ### Users
-- name: Ensuring users are present
+- name: Ensuring analysts accounts are present
   block:
     - set_fact:
         users_exist: false
     - ansible.windows.win_user:
         name: '{{ Usernames | last }}'
+        state: query
+      register: user
+
+- name: Ensuring other users are present
+  block:
+    - set_fact:
+        users_exist: false
+    - ansible.windows.win_user:
+        name: '{{ Other_Users | last }}'
         state: query
       register: user
 
