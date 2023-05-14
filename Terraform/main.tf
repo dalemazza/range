@@ -18,13 +18,13 @@ resource "proxmox_vm_qemu" "dc01" {
      count       = 1 
      name        = "dc01" 
      target_node = "srv01" 
-     clone       = "win server 2016 template" 
-     full_clone  = true 
-     os_type     = "cloud_init" 
-     cores       = 6
-     sockets     = 1 
+     clone       = var.server16_template
+
+     os_type     = "windows" 
+     cores       = 12
+     sockets     = 2
      cpu         = "host" 
-     memory      = 4096 
+     memory      = var.server_ram
      scsihw            = "virtio-scsi-pci" 
      bootdisk          = "scsi0" 
      disk { 
