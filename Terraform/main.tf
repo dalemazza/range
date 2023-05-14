@@ -9,7 +9,9 @@ terraform {
 
 provider "proxmox" { 
    pm_api_url    = "https://192.168.1.46:8006/api2/json" 
-   pm_debug      = true 
+   pm_debug      = true
+   pm_api_token_id = "blog_example@pam!new_token_id"
+   pm_api_token_secret = "9ec8e608-d834-4ce5-91d2-15dd59f9a8c1"
  }
 
 resource "proxmox_vm_qemu" "dc01" { 
