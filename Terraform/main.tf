@@ -17,8 +17,8 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "dc01" { 
      count       = 1 
      name        = "dc01" 
-     target_node = "srv01" 
-     clone       = var.server16_template
+     target_node = var.proxmox_host 
+     clone       = var.win_server_template
 
      os_type     = "windows" 
      cores       = 12
