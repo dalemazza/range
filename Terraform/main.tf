@@ -7,34 +7,26 @@ terraform {
    } 
  }
 
-provider "proxmox" { 
-   pm_api_url    = "https://192.168.1.46:8006/api2/json" 
-   pm_debug      = true
-   pm_api_token_id = "blog_example@pam!new_token_id"
-   pm_api_token_secret = "9ec8e608-d834-4ce5-91d2-15dd59f9a8c1"
- }
-
 resource "proxmox_vm_qemu" "dc01" { 
-     count       = 1 
-     name        = "dc01" 
-     target_node = var.proxmox_host 
-     clone       = var.win_server_template
-
-     os_type     = "windows" 
-     cores       = 12
-     sockets     = 2
-     cpu         = "host" 
-     memory      = var.server_ram
-     scsihw            = "virtio-scsi-pci" 
-     bootdisk          = "scsi0" 
+     count = var.win_server_amount 
+     name = "dc01" 
+     target_node = var.pm_host 
+     clone = var.win_server_template
+     os_type = "cloud-init" 
+     cores = 12
+     sockets = 1
+     cpu = "host" 
+     memory = var.server_ram
+     scsihw = "virtio-scsi-pci" 
+     bootdisk = "scsi0" 
      disk { 
-         size            = "40G" 
-         type            = "scsi" 
-         storage         = "local-lvm" 
+        size = "40G" 
+        type = "scsi" 
+        storage = "local-lvm" 
      } 
-
-     network { 
-         model           = "virtio" 
-         bridge          = "vmbr0" 
+     network {
+        ipconfig0 = "ip=${var.server_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
+        model = "virtio" 
+        bridge = "vmbr0" 
      } 
  }
