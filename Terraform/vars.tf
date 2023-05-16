@@ -39,7 +39,7 @@ variable "workstations_ips" {
 }
 variable "networkrange" {
   description = "Enter as 8,16,22,24,etc. hint: 10.0.0.0/8"
-  default = 192.168.1.0/24
+  default = "192.168.1.0/24"
 }
 variable "gateway" {
   description = "Enter your network gateway."
