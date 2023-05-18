@@ -1,4 +1,4 @@
-Domain: athena.snap
+Domain: athena..corp
 Domain_split: "{{ Domain.split('.') }}"
 NetBIOS: '{{ Domain_split[0] }}'
 DN: "DC={{ Domain_split|join(',DC=') }}"
