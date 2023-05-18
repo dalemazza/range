@@ -2,14 +2,6 @@
 
 # https://docs.ansible.com/ansible/latest/collections/community/windows/win_domain_user_module.html
 
-- name: Create DA analyst accounts
-  community.windows.win_domain_user:
-    name: "{{ item }}"
-    password: Passw0rd!
-    state: present
-    groups: Domain Admins
-  loop: "{{ Usernames }}"
-
 - name: Create domain users
   community.windows.win_domain_user:
     name: "{{ item }}"
